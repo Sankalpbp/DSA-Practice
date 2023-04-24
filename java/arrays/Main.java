@@ -12,6 +12,11 @@ public class Main {
     
     public static void main ( String... args ) {
 
+        int [ ] heights = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+
+        RainWaterTrapping rwt = new RainWaterTrapping ();
+        System.out.println ( rwt.rainWaterTrapped ( heights ) );
+
         int [ ] arr = { 8, 0, 7, 2, 5, 9, 3, 6 };
 
         LargestToLeftRight llr = new LargestToLeftRight ();

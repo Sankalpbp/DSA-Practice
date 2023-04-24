@@ -2,6 +2,10 @@ public class Main {
 
     public static void main ( String... args ) {
 
+        MaximumAreaHistogram mah = new MaximumAreaHistogram ();
+        int [ ] bars = { 2, 1, 5, 6, 2, 3 };
+        System.out.println ( "Maximum area of the histogram is: " + mah.maximumArea ( bars ) + "\n\n" );
+
         ArrayStack stack = new ArrayStack ();
 
         for ( int i = 0; i < 10; ++i ) {
