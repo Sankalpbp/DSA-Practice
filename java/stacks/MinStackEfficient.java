@@ -13,38 +13,60 @@ public class MinStackEfficient {
         return minimum;
     }
 
-    public int top () {
-        if ( main.isEmpty () ) {
-            throw new NullPointerException ( "StackOverflow" );
-        }
-        return ( main.peek () >= minimum ) ? main.peek () : minimum;
-    }
-
     public void push ( int data ) {
+
         if ( main.isEmpty () ) {
             main.push ( data );
             minimum = data;
             return;
         }
 
-        if ( data >= minimum ) {
-            main.push ( data );
-        } else {
-            main.push ( 2 * data - minimum );
+        if ( data < minimum ) {
+            int newData = 2 * data - minimum;
             minimum = data;
+            main.push ( newData );
+        } else if ( data >= minimum ) {
+            main.push ( data );
         }
+
     }
 
-    public void pop () {
+    public int top ( ) throws NullPointerException {
         if ( main.isEmpty () ) {
             throw new NullPointerException ( "StackOverflow" );
         }
 
-        if ( main.peek () <= minimum ) {
-            minimum = 2 * minimum - main.peek ();
+        if ( main.peek () >= minimum ) {
+            return main.peek ();
         }
 
-        main.pop ();
+        if ( main.peek () < minimum ) {
+            return minimum;
+        }
+
+        return -1;
+    }
+    
+    public void pop () throws NullPointerException {
+        if ( main.isEmpty () ) {
+            throw new NullPointerException ( "StackOverflow" );
+        }
+
+        if ( main.peek () >= minimum ) {
+            main.pop ();
+            return;
+        }
+
+        if ( main.peek () < minimum ) {
+            minimum = 2 * minimum - main.peek ();
+            main.pop ();
+            return;
+        }
+        
+    }
+
+    public boolean isEmpty () {
+        return main.isEmpty ();
     }
 
 }

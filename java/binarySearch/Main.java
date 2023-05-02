@@ -54,5 +54,32 @@ public class Main {
         System.out.println ( nl.nextLetter ( letters, 'e' ) );
         System.out.println ( nl.nextLetter ( letters, 'b' ) );
 
+        int [ ] infinite = new int [ 10000000 ];
+        for ( int i = 1; i <= 10000000; ++i ) {
+            infinite [ i - 1 ] = i;
+        }
+
+        SearchInInfiniteSortedArray sis = new SearchInInfiniteSortedArray ();
+
+        System.out.println ( sis.search ( infinite, 77777 ) );
+
+        int [ ] infiniteBinary = new int [ 1000000 ];
+        for ( int i = 0; i < 50000; ++i ) {
+            infiniteBinary [ i ] = 0;
+        }
+
+        for ( int i = 50000; i < infiniteBinary.length; ++i ) {
+            infiniteBinary [ i ] = 1;
+        }
+
+        Search1InBinarySortedArray sib = new Search1InBinarySortedArray ();
+
+        System.out.println ( sib.search ( infiniteBinary ) );
+
+
+        MinimumDifferenceElement mde = new MinimumDifferenceElement ();
+        System.out.println ( mde.minimumDifference ( arr, 7 ) );
+        System.out.println ( mde.minimumDifference ( arr, 14 ) );
+
     }
 }
