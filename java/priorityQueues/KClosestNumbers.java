@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 import java.util.PriorityQueue;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.IntStream;
 
 public class KClosestNumbers {
 
@@ -20,11 +21,12 @@ public class KClosestNumbers {
                                                             () -> new PriorityQueue ( Collections.reverseOrder () ) ) 
                                              );
 
-        for ( int i = k; i < list.size (); ++i ) {
-            maxHeap.add ( new Element ( list.get ( i ), getDifference ( list.get ( i ), x ) ) );
-            System.out.println ( maxHeap.peek () );
-            maxHeap.poll ();
-        }
+        IntStream.range ( k, list.size () )
+                 .mapToObj ( list :: get )
+                 .forEach ( e -> {
+                     maxHeap.add ( new Element ( e, getDifference ( e, x ) ) );
+                     maxHeap.poll ();
+                 } );
 
         return maxHeap.stream ()
                       .map ( e -> e.getData () )
