@@ -26,5 +26,9 @@ public class Main {
         ns.sort ( list2, 3 );
         System.out.println ( list2 );
 
+        List<Integer> list3 = Arrays.asList ( 8, 5, 6, 7, 9 );
+        KClosestNumbers kcn = new KClosestNumbers ();
+        System.out.println ( kcn.kClosest ( list3, 3, 7 ) );
+
     }
 }
