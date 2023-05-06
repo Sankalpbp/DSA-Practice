@@ -1,43 +1,70 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.math.BigInteger;
 
 public class FindOneMissingDuplicate {
 
-    private int getSum ( List<Integer> list ) {
-        int sum = 0;
+    private BigInteger getSum ( List<Integer> list ) {
+        BigInteger sum = BigInteger.ZERO;
         for ( int x : list ) {
-            sum += x;
+            sum = sum.add ( new BigInteger ( Integer.valueOf ( x ).toString () ) );
         }
         return sum;
     }
 
-    private int getSquareSum ( List<Integer> list ) {
-        int sum = 0;
+    private BigInteger getSquareSum ( List<Integer> list ) {
+        BigInteger sum = BigInteger.ZERO;
+        BigInteger value = null;
         for ( int x : list ) {
-            sum += x * x;
+            value = new BigInteger ( Integer.valueOf ( x ).toString () );
+            value = value.multiply ( value );
+            sum = sum.add ( value );
         }
         return sum;
+    }
+
+    private BigInteger getSumOfNNaturalNumbers ( int n ) {
+        BigInteger bigN = new BigInteger ( Integer.valueOf ( n ).toString () );
+        BigInteger bigNPlus1 = new BigInteger ( Integer.valueOf ( n + 1 ).toString () );
+
+        BigInteger sumOfN = bigN.multiply ( bigNPlus1 );
+        sumOfN = sumOfN.divide ( new BigInteger ( "2" ) );
+
+        return sumOfN;
+    }
+
+    private BigInteger getSumOfSquareOfNNaturalNumbers ( int n ) {
+        BigInteger bigN = new BigInteger ( Integer.valueOf ( n ).toString () );
+        BigInteger bigNPlus1 = bigN.add ( BigInteger.ONE );
+        BigInteger big2NPlus1 = bigN.add ( bigNPlus1 );
+
+        BigInteger result = bigN.multiply ( bigNPlus1 );
+        result = result.multiply ( big2NPlus1 );
+        result = result.divide ( new BigInteger ( Integer.valueOf ( 6 ).toString () ) );
+        
+        return result;
     }
 
     public List<Integer> find ( List<Integer> list ) {
 
         int n = list.size ();
 
-        int idealSum = n * ( n + 1 ) / 2;
-        int listSum = getSum ( list );
+        BigInteger idealSum = getSumOfNNaturalNumbers ( n );
+        BigInteger listSum = getSum ( list );
 
-        int idealSquareSum = n * ( n + 1 ) * ( 2 * n + 1 ) / 6;
-        int listSquareSum = getSquareSum ( list );
+        BigInteger idealSquareSum = getSumOfSquareOfNNaturalNumbers ( n );
+        BigInteger listSquareSum = getSquareSum ( list );
 
-        int differenceOfMissingAndDuplicate = idealSum - listSum;
-        int differenceOfSquareOfMissingAndDuplicate = idealSquareSum - listSquareSum;
+        BigInteger differenceOfMissingAndDuplicate = idealSum.subtract ( listSum );
+        BigInteger differenceOfSquareOfMissingAndDuplicate = idealSquareSum.subtract ( listSquareSum );
 
-        int sumOfMissingAndDuplicate = differenceOfSquareOfMissingAndDuplicate / differenceOfMissingAndDuplicate;
+        BigInteger sumOfMissingAndDuplicate = differenceOfSquareOfMissingAndDuplicate.divide ( differenceOfMissingAndDuplicate );
 
-        int missing = ( differenceOfMissingAndDuplicate + sumOfMissingAndDuplicate ) / 2;
-        int duplicate = missing - differenceOfMissingAndDuplicate;
+        BigInteger missing = ( differenceOfMissingAndDuplicate.add ( sumOfMissingAndDuplicate ) );
+        missing = missing.divide ( new BigInteger ( Integer.valueOf ( 2 ).toString () ) );
+        BigInteger duplicate = missing.subtract ( differenceOfMissingAndDuplicate );
 
-        return Arrays.asList ( missing, duplicate );
+        return Arrays.asList ( missing.intValue (), duplicate.intValue () );
     }
 }
