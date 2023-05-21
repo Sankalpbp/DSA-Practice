@@ -6,19 +6,19 @@ public class MaximumSumSubarray {
         int i = 0;
         int j = 0;
 
-        while ( j < arr.length ) {
-
+        while ( ( j - i + 1 ) < k ) {
             sum += arr [ j ];
-            if ( ( j - i + 1 ) < k ) {
-                ++j;
-            } else if ( ( j - i + 1 ) == k ) {
-                max = Math.max ( max, sum );
+            ++j;
+        }
 
-                sum -= arr [ i ];
+        while ( j < arr.length ) {
+            sum += arr [ j ];
+            max = Math.max ( max, sum );
 
-                ++i;
-                ++j;
-            }
+            sum -= arr [ i ];
+
+            ++i;
+            ++j;
         }
 
         return max;
