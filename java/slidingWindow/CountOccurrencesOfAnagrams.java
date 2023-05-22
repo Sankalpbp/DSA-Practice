@@ -3,30 +3,13 @@ import java.util.HashMap;
 
 public class CountOccurrencesOfAnagrams {
 
-    private static boolean matchFrequency ( final Map<Character, Integer> frequency, 
-                                            final Map<Character, Integer> frequencyOfCharacter ) {
-        for ( Map.Entry<Character, Integer> entry : frequencyOfCharacter.entrySet () ) {
-            if ( entry.getValue () > 0 && 
-                 ( !frequency.containsKey ( entry.getKey () ) ||
-                   frequency.get ( entry.getKey () ) != entry.getValue () ) ) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private static void insertInMap ( final Map<Character, Integer> frequency, char ch ) {
-        if ( frequency.containsKey ( ch ) ) {
-            frequency.put ( ch, frequency.get ( ch ) + 1 );
-        } else {
-            frequency.put ( ch, 1 );
-        }
-    }
-
     private static void getFrequency ( final String pattern, final Map<Character, Integer> frequency ) {
         for ( char ch : pattern.toCharArray () ) {
-            insertInMap ( frequency, ch );
+            if ( frequency.containsKey ( ch ) ) {
+                frequency.put ( ch, frequency.get ( ch ) + 1 );
+            } else {
+                frequency.put ( ch, 1 );
+            }
         }
     }
 
@@ -47,6 +30,9 @@ public class CountOccurrencesOfAnagrams {
 
             if ( frequency.containsKey ( ch ) ) {
                 frequency.put ( ch, frequency.get ( ch ) - 1 );
+                // to keep track of the number of characters which are 
+                // successfully found to have the same number as there 
+                // are in the anagram
                 if ( frequency.get ( ch ) == 0 ) {
                     --count;
                 }
@@ -63,6 +49,8 @@ public class CountOccurrencesOfAnagrams {
                 // slide the window
                 if ( frequency.containsKey ( s.charAt ( i ) ) ) {
                     frequency.put ( s.charAt ( i ), frequency.get ( s.charAt ( i ) ) + 1 );
+                    // to keep track of the updated number of characters because we are 
+                    // sliding the window
                     if ( frequency.get ( s.charAt ( i ) ) == 1 ) {
                         ++count;
                     }
