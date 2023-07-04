@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Main {
 
@@ -27,5 +28,50 @@ public class Main {
         System.out.println ( input );
         System.out.println ( input1 );
         System.out.println ( input2 );
+
+        System.out.println ( input1 );
+        System.out.println ( "Reversing..." );
+        ReverseArray.reverse ( input1 );
+        System.out.println ( input1 );
+
+        Stack<Integer> stack = new Stack<> ();
+        stack.push ( 3 );
+        stack.push ( 9 );
+        stack.push ( 2 );
+
+        PrintStackTopToBottom.print ( stack );
+        PrintStackBottomToTop.print ( stack );
+
+        
+        System.out.println ( "Before: " + stack );
+        ReverseStack.reverse ( stack );
+        System.out.println ( "After: " + stack );
+
+        System.out.println ( "Before: " + stack );
+        SortStack.sort ( stack );
+        System.out.println ( "After: " + stack );
+
+        Stack<Integer> anotherStack = new Stack<> ();
+        anotherStack.push ( 1 );
+        anotherStack.push ( 2 );
+        anotherStack.push ( 3 );
+        System.out.println ( "Before: " + anotherStack );
+        SortStack.sort ( anotherStack );
+        System.out.println ( "After: " + anotherStack );
+
+        System.out.println ( input2 );
+        DeleteElementFromArray.delete ( input2, 3 );
+        System.out.println ( input2 );
+
+        List<Integer> input5 = new ArrayList<> ( Arrays.asList ( 1 ) );
+        System.out.println ( input5 );
+        DeleteElementFromArray.delete ( input5, 1 );
+        System.out.println ( input5 );
+        DeleteElementFromArray.delete ( input5, 1 );
+        System.out.println ( input5 );
+
+        System.out.println ( anotherStack );
+        DeleteFromStack.delete ( anotherStack, 2 );
+        System.out.println ( anotherStack );
     }
 }
