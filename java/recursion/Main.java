@@ -73,5 +73,22 @@ public class Main {
         System.out.println ( anotherStack );
         DeleteFromStack.delete ( anotherStack, 2 );
         System.out.println ( anotherStack );
+
+        Stack<Integer> input10 = new Stack<> ();
+        input10.push ( 1 );
+        input10.push ( 2 );
+        input10.push ( 3 );
+        input10.push ( 4 );
+        input10.push ( 5 );
+        System.out.println ( input10 );
+        DeleteMiddleElementFromStack.delete ( input10 );
+        System.out.println ( input10 );
+
+        System.out.println ( KthSymbol.kth ( 4, 6 ) );
+        System.out.println ( KthSymbol.kth ( 2, 2 ) );
+        System.out.println ( KthSymbol.kth ( 3, 3 ) );
+        System.out.println ( KthSymbol.kth ( 5, 4 ) );
+
+        TowerOfHanoi.toh ( 10, 's', 'd', 'h' );
     }
 }
