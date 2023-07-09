@@ -7,5 +7,7 @@ public class Main {
         ThreeD.print ( 2, 4, 6 );
 
         FourD.print ( 3, 5, 1, 2 );
+
+        Misc.print ( 2, 4 );
     }
 }
