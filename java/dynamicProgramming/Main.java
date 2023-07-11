@@ -43,9 +43,7 @@ public class Main {
         System.out.println ( MatrixChainMultiplication.solveRecursive ( dimensions ) );
         System.out.println ( MatrixChainMultiplication.solveMemo ( dimensions ) );
 
-        System.out.println ( PalindromicPartitioning.partitions ( "g" ) );
-        System.out.println ( PalindromicPartitioning.partitions ( "ge" ) );
-        System.out.println ( PalindromicPartitioning.partitions ( "gee" ) );
         System.out.println ( PalindromicPartitioning.partitions ( "geek" ) );
+        System.out.println ( PalindromicPartitioning.partitionsMemo ( "geek" ) );
     }
 }

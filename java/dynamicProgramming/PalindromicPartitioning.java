@@ -1,15 +1,42 @@
+import java.util.Arrays;
+
 public class PalindromicPartitioning {
+
+    public static int partitionsMemo ( String s ) {
+        int [][] memo = new int [ s.length () + 1 ][ s.length () + 1 ];
+        for ( int i = 0; i <= s.length (); ++i ) {
+            Arrays.fill ( memo [ i ], -1 );
+        }
+        return partitionsMemo ( s, 0, s.length () - 1, memo );
+    }
+
+    private static int partitionsMemo ( String s, int i, int j, int [][] memo ) {
+        if ( i >= j || isPalindrome ( s, i, j ) ) {
+            memo [ i ][ j ] = 0;
+            return 0;
+        }
+
+        int answer = Integer.MAX_VALUE;
+
+        for ( int k = i; k < j; ++k ) {
+            int leftAnswer = partitionsMemo ( s, i, k, memo );
+            int rightAnswer = partitionsMemo ( s, k + 1, j, memo );
+
+            int temporaryAnswer = leftAnswer + 1 + rightAnswer;
+
+            answer = Math.min ( answer, temporaryAnswer );
+        }
+
+        memo [ i ][ j ] = answer;
+        return answer;
+    }
 
     public static int partitions ( String s ) {
         return partitions ( s, 0, s.length () - 1 );
     }
 
     private static int partitions ( String s, int i, int j ) {
-        if ( i >= j ) {
-            return 0;
-        }
-
-        if ( isPalindrome ( s, i, j ) ) {
+        if ( i >= j || isPalindrome ( s, i, j ) ) {
             return 0;
         }
 
@@ -24,7 +51,6 @@ public class PalindromicPartitioning {
             answer = Math.min ( answer, temporaryAnswer );
         }
 
-        System.out.println ( "i: " + i + " j: " + j + "answer: " + answer );
         return answer;
     }
 
@@ -39,9 +65,5 @@ public class PalindromicPartitioning {
         }
 
         return true;
-    }
-
-    private static int clean ( int x ) {
-        return ( x == Integer.MAX_VALUE ) ? 0 : x;
     }
 }
