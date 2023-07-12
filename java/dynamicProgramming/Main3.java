@@ -26,6 +26,22 @@ public class Main3 {
         System.out.println ( MinCoins.minCoins ( Arrays.asList ( 25, 10, 5 ), 30 ) );
         System.out.println ( MinCoins.minCoinsMemo ( Arrays.asList ( 25, 10, 5 ), 30 ) );
         System.out.println ( MinCoins.minCoinsDP ( Arrays.asList ( 25, 10, 5 ), 30 ) );
+
+        System.out.println ( "Final LCS: " + PrintLCS.print ( "AGGTAB", "GXTXAYB" ) );
+
+        System.out.println ( "length of Shortest common supersequence: " + ShortestCommonSupersequence.shortest ( "geekek", "geek" ) );
+        System.out.println ( "length of Shortest common supersequence: " + ShortestCommonSupersequence.shortest ( "geekek", "geeks" ) );
+
+        MinimumInsertionsDeletions.print ( "geestkek", "geehk" );
+        MinimumInsertionsDeletions.print ( "geset", "geehk" );
+        MinimumInsertionsDeletions.print ( "geehk", "geestkek" );
+
+        System.out.println ( LongestPalindromicSubsequence.longest ( "abdrefoghrjklolma" ) );
+
+        System.out.println ( "Shortest common supersequence: " + PrintSCS.getSCS ( "geekek", "geek" ) );
+        System.out.println ( "Shortest common supersequence: " + PrintSCS.getSCS ( "geekek", "geeks" ) );
+
+        System.out.println ( LongestRepeatingSubsequence.longest ( "axxxb" ) );
     }
 
 }

@@ -18,5 +18,8 @@ public class Main2 {
         System.out.println ( CountSubsetSum.count2 ( Arrays.asList ( 1, 1, 1, 1 ), 1 ) );
 
         System.out.println ( MinimumSubsetDifference.minimum ( Arrays.asList ( 1, 6, 11, 5 ) ) );
+
+        System.out.println ( BooleanParenthesization.ways ( "T^F&T" ) );
+        System.out.println ( BooleanParenthesization.waysMemoized ( "T^F&T" ) );
     }
 }
