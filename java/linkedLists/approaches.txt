@@ -1,0 +1,7 @@
+1. Two pointer approach
+2. Finding the start of the loop in a linked list that ends in a loop
+3. Reverse a linked list without recursion
+4. Reverse a linked list with recursion
+5. Merging two linked lists - recursive and iterative
+6. Reverse by pairs - recursive and iterative
+7. Check if a Linked list is a palindrome
