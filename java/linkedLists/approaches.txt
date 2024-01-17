@@ -5,3 +5,5 @@
 5. Merging two linked lists - recursive and iterative
 6. Reverse by pairs - recursive and iterative
 7. Check if a Linked list is a palindrome
+8. Convert a binary tree to doubly linked list ( which follows inorder inorder traversal )
+9. Quick Sort

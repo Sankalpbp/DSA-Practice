@@ -9,6 +9,24 @@ public class LinkedList {
         return head;
     }
 
+    public static Node forPalindrome () {
+        Node head = new Node ( 1, null );
+        head.next = new Node ( 2, null );
+        head.next.next = new Node ( 2, null );
+        head.next.next.next = new Node ( 1, null );
+
+        return head;
+    }
+
+    public static Node forSorting () {
+        Node head = new Node ( 2, null );
+        head.next = new Node ( 0, null );
+        head.next.next = new Node ( 4, null );
+        head.next.next.next = new Node ( 3, null );
+
+        return head;
+    }
+
     public static Node createListNew () {
         Node head = new Node ( 2, null );
         head.next = new Node ( 4, null );

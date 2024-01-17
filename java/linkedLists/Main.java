@@ -9,6 +9,10 @@ public class Main {
         Merge.print ();
 
         PairReverse.print ();
+
+        BTtoDoubly.print ();
+
+        MergeSort.print ();
     }
 
 }
