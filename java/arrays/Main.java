@@ -6,7 +6,6 @@ public class Main {
         for ( int i = 0; i < arr.length; ++i ) {
             System.out.print ( arr [ i ] + " " );
         }
-
         System.out.println ();
     }
     
@@ -32,5 +31,7 @@ public class Main {
         printArray ( rightLargest );
         printArray ( leftSmallest );
         printArray ( rightSmallest );
+
+        Sort.print ( );
     }
 }
