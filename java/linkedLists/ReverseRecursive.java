@@ -7,7 +7,7 @@ public class ReverseRecursive {
         LinkedList.printList ( list );
     }
 
-    private static Node reverse ( Node head ) {
+    public static Node reverse ( Node head ) {
         if ( head == null || head.next == null ) {
             return head;
         }
