@@ -19,11 +19,8 @@ public class SortObjects {
         Arrays.stream ( arr )
               .forEach ( System.out::println );
 
-        Arrays.sort ( arr, new Comparator ( ) {
-            public int compare ( Object a, Object b ) {
-                Student student1 = ( Student ) a;
-                Student student2 = ( Student ) b;
-
+        Arrays.sort ( arr, new Comparator<Student> ( ) {
+            public int compare ( Student student1, Student student2 ) {
                 if ( student1.getBooksRead () == student2.getBooksRead () ) {
                     if ( student1.getAge () == student2.getAge () ) {
                         return 0;

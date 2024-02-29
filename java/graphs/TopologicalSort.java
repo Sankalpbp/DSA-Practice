@@ -5,6 +5,7 @@ public class TopologicalSort {
 
     public static void print () {
         int [][] adjacencyMatrix = Graphs.buildDAG ();
+        System.out.print ( "Topological Sort: " );
         topologicalSort ( adjacencyMatrix );
     }
 

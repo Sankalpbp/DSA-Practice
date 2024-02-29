@@ -4,6 +4,8 @@ import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 import java.util.Comparator;
 import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class HeapOfObjects {
 
@@ -30,7 +32,7 @@ public class HeapOfObjects {
                                                                          generateRandomNumber ( 0, 60 ) ) )
                                           .collect ( Collectors.toList () );
 
-        PriorityQueue<Student> minHeap = new PriorityQueue<Student> ( new Comparator () {
+        PriorityQueue<Student> minHeap = new PriorityQueue<> ( new Comparator () {
             public int compare ( Object a, Object b ) {
                 Student student1 = ( Student ) a;
                 Student student2 = ( Student ) b;
@@ -44,6 +46,12 @@ public class HeapOfObjects {
                 return -1;
             }
         });
+
+        List<Stuff> stuff = IntStream.range ( 0, 10 )
+                                           .mapToObj ( i -> new Stuff ( generateRandomNumber ( 0, 10000 ) ) )
+                                           .collect ( Collectors.toList () );
+
+//        Collections.sort ( stuff );
 
         students.stream ()
                    .forEach ( minHeap :: add );
